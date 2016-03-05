@@ -47,7 +47,7 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
                 MenuCatComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-item',
-                        templateUrl: 'app/menuItem/menu.item.template.html',
+                        templateUrl: 'app/menuCategory/menu.cat.template.html',
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, menu_service_1.MenuService])
                 ], MenuCatComponent);

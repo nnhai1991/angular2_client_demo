@@ -58,32 +58,44 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 MenuService.prototype.saveMenuCat = function (cat) {
                     if (cat.menu_category_id == null)
                         return this.http.post(this._menuCategoryUrl, JSON.stringify(cat), this.options)
-                            .map(function (res) { return res.json(); })
+                            .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
                     else
                         return this.http.post(this._menuCategoryUrl + "/" + cat.menu_category_id, JSON.stringify(cat), this.options)
-                            .map(function (res) { return res.json(); })
+                            .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
                 };
                 MenuService.prototype.saveMenuItem = function (item) {
                     if (item.menu_item_id == null)
                         return this.http.post(this._menuItemUrl, JSON.stringify(item), this.options)
-                            .map(function (res) { return res.json(); })
+                            .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
                     else
                         return this.http.post(this._menuItemUrl + "/" + item.menu_item_id, JSON.stringify(item), this.options)
-                            .map(function (res) { return res.json(); })
+                            .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
+                };
+                MenuService.prototype.deleteMenuCat = function (cat) {
+                    return this.http.delete(this._menuCategoryUrl + "/" + cat.menu_category_id)
+                        .map(function (res) { return res; })
+                        .do(function (data) { return console.log(data); })
+                        .catch(this.handleError);
+                };
+                MenuService.prototype.deleteMenuItem = function (item) {
+                    return this.http.delete(this._menuItemUrl + "/" + item.menu_item_id)
+                        .map(function (res) { return res; })
+                        .do(function (data) { return console.log(data); })
+                        .catch(this.handleError);
                 };
                 MenuService.prototype.handleError = function (error) {
                     // in a real world app, we may send the error to some remote logging infrastructure
                     // instead of just logging it to the console
-                    console.error(error);
-                    return Observable_1.Observable.throw(error.json().error || 'Server error');
+                    console.log(error);
+                    return Observable_1.Observable.throw(error.json() || 'Server error');
                 };
                 MenuService = __decorate([
                     core_1.Injectable(), 

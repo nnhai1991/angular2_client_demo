@@ -37,7 +37,7 @@ export class MenuListingComponent implements OnInit {
 //       });
 //   }
   addCat(){
-      
+      this._router.navigate(['MenuCat']);
   }
   addItem(){
       this._router.navigate(['MenuItem']);
@@ -46,7 +46,15 @@ export class MenuListingComponent implements OnInit {
       
   }
   deleteItem(item: MenuItem){
+      this._menuService.deleteMenuItem(item).subscribe(res=>this.getMenuCategories(), error =>  this.errorMessage = <any>error);
+  }
+  editCat(cat: MenuCategory){
       
+  }
+  deleteCat(cat: MenuCategory){
+      if (cat.menu_item.length==0){
+          this._menuService.deleteMenuCat(cat).subscribe(res=>this.getMenuCategories(), error =>  this.errorMessage = <any>error);
+      }
   }
 
   ngOnInit() {

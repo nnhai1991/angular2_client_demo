@@ -8,7 +8,7 @@ import { MenuService } from '../service/menu.service';
 
 @Component({
   selector: 'menu-item',
-  templateUrl: 'app/menuItem/menu.item.template.html',
+  templateUrl: 'app/menuCategory/menu.cat.template.html',
 
 })
 export class MenuCatComponent implements OnInit {

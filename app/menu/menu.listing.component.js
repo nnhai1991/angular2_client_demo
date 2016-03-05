@@ -46,6 +46,7 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service'],
                 //       });
                 //   }
                 MenuListingComponent.prototype.addCat = function () {
+                    this._router.navigate(['MenuCat']);
                 };
                 MenuListingComponent.prototype.addItem = function () {
                     this._router.navigate(['MenuItem']);
@@ -53,6 +54,16 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service'],
                 MenuListingComponent.prototype.editItem = function (item) {
                 };
                 MenuListingComponent.prototype.deleteItem = function (item) {
+                    var _this = this;
+                    this._menuService.deleteMenuItem(item).subscribe(function (res) { return _this.getMenuCategories(); }, function (error) { return _this.errorMessage = error; });
+                };
+                MenuListingComponent.prototype.editCat = function (cat) {
+                };
+                MenuListingComponent.prototype.deleteCat = function (cat) {
+                    var _this = this;
+                    if (cat.menu_item.length == 0) {
+                        this._menuService.deleteMenuCat(cat).subscribe(function (res) { return _this.getMenuCategories(); }, function (error) { return _this.errorMessage = error; });
+                    }
                 };
                 MenuListingComponent.prototype.ngOnInit = function () {
                     this.getMenuCategories();

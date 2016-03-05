@@ -42,12 +42,12 @@ export class MenuService {
     saveMenuCat(cat: MenuCategory) {
         if (cat.menu_category_id == null)
             return this.http.post(this._menuCategoryUrl, JSON.stringify(cat),this.options)
-                .map(res => <MenuCategory>res.json())
+                .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
             return this.http.post(this._menuCategoryUrl+"/"+cat.menu_category_id, JSON.stringify(cat),this.options)
-                .map(res => <MenuCategory>res.json())
+                .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);
     }
@@ -55,12 +55,26 @@ export class MenuService {
     saveMenuItem(item: MenuItem) {
         if (item.menu_item_id == null)
             return this.http.post(this._menuItemUrl, JSON.stringify(item),this.options)
-                .map(res => <MenuItem>res.json())
+                .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
             return this.http.post(this._menuItemUrl+"/"+item.menu_item_id, JSON.stringify(item),this.options)
-                .map(res => <MenuItem>res.json())
+                .map(res => res)
+                .do(data => console.log(data))
+                .catch(this.handleError);
+    }
+    
+    deleteMenuCat(cat: MenuCategory) {
+        return this.http.delete(this._menuCategoryUrl+"/"+cat.menu_category_id)
+                .map(res => res)
+                .do(data => console.log(data))
+                .catch(this.handleError);
+    }
+    
+    deleteMenuItem(item: MenuItem) {
+        return this.http.delete(this._menuItemUrl+"/"+item.menu_item_id)
+                .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);
     }
@@ -69,7 +83,7 @@ export class MenuService {
     private handleError(error: Response) {
         // in a real world app, we may send the error to some remote logging infrastructure
         // instead of just logging it to the console
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        console.log(error);
+        return Observable.throw(error.json() || 'Server error');
     }
 }
