@@ -23,7 +23,7 @@ export class MenuService {
             .catch(this.handleError);
     }
     getMenuCategory(id: number) {
-        return this.http.get(this._menuCategoryUrl + "get/" + id)
+        return this.http.get(this._menuCategoryUrl + "/" + id)
             .map(res => <MenuCategory>res.json())
             .catch(this.handleError);
     }
@@ -34,7 +34,7 @@ export class MenuService {
             .catch(this.handleError);
     }
     getMenuItem(id: number) {
-        return this.http.get(this._menuItemUrl + "get/" + id)
+        return this.http.get(this._menuItemUrl + "/" + id)
             .map(res => <MenuItem>res.json())
             .catch(this.handleError);
     }
@@ -46,7 +46,7 @@ export class MenuService {
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
-            return this.http.post(this._menuCategoryUrl+"/"+cat.menu_category_id, JSON.stringify(cat),this.options)
+            return this.http.put(this._menuCategoryUrl+"/"+cat.menu_category_id, JSON.stringify(cat),this.options)
                 .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);
@@ -59,7 +59,7 @@ export class MenuService {
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
-            return this.http.post(this._menuItemUrl+"/"+item.menu_item_id, JSON.stringify(item),this.options)
+            return this.http.put(this._menuItemUrl+"/"+item.menu_item_id, JSON.stringify(item),this.options)
                 .map(res => res)
                 .do(data => console.log(data))
                 .catch(this.handleError);

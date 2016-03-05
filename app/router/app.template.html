@@ -18,11 +18,11 @@
         <li [class.active]="_router.isRouteActive(_router.generate(['MenuListing']))">
             <a [routerLink]="['MenuListing']">Menu Listing</a>
         </li>
-        <li [class.active]="_router.isRouteActive(_router.generate(['MenuItem']))">
-            <a [routerLink]="['MenuItem']">Menu Item</a>
+        <li [class.active]="_router.isRouteActive(_router.generate(['MenuItem',{id:0}]))">
+            <a [routerLink]="['MenuItem',{id: 0}]">Menu Item</a>
         </li>
-         <li [class.active]="_router.isRouteActive(_router.generate(['MenuCat']))">
-            <a [routerLink]="['MenuCat']">Menu Category</a>
+         <li [class.active]="_router.isRouteActive(_router.generate(['MenuCat',{id:0}]))">
+            <a [routerLink]="['MenuCat',{id: 0}]">Menu Category</a>
         </li>
       </ul>
      

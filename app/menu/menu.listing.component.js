@@ -46,24 +46,26 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service'],
                 //       });
                 //   }
                 MenuListingComponent.prototype.addCat = function () {
-                    this._router.navigate(['MenuCat']);
-                };
-                MenuListingComponent.prototype.addItem = function () {
-                    this._router.navigate(['MenuItem']);
-                };
-                MenuListingComponent.prototype.editItem = function (item) {
-                };
-                MenuListingComponent.prototype.deleteItem = function (item) {
-                    var _this = this;
-                    this._menuService.deleteMenuItem(item).subscribe(function (res) { return _this.getMenuCategories(); }, function (error) { return _this.errorMessage = error; });
+                    this._router.navigate(['MenuCat', { id: 0 }]);
                 };
                 MenuListingComponent.prototype.editCat = function (cat) {
+                    this._router.navigate(['MenuCat', { id: cat.menu_category_id }]);
                 };
                 MenuListingComponent.prototype.deleteCat = function (cat) {
                     var _this = this;
                     if (cat.menu_item.length == 0) {
                         this._menuService.deleteMenuCat(cat).subscribe(function (res) { return _this.getMenuCategories(); }, function (error) { return _this.errorMessage = error; });
                     }
+                };
+                MenuListingComponent.prototype.addItem = function () {
+                    this._router.navigate(['MenuItem', { id: 0 }]);
+                };
+                MenuListingComponent.prototype.editItem = function (item) {
+                    this._router.navigate(['MenuItem', { id: item.menu_item_id }]);
+                };
+                MenuListingComponent.prototype.deleteItem = function (item) {
+                    var _this = this;
+                    this._menuService.deleteMenuItem(item).subscribe(function (res) { return _this.getMenuCategories(); }, function (error) { return _this.errorMessage = error; });
                 };
                 MenuListingComponent.prototype.ngOnInit = function () {
                     this.getMenuCategories();

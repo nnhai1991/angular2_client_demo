@@ -28,12 +28,18 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
             }],
         execute: function() {
             MenuCatComponent = (function () {
-                function MenuCatComponent(_router, _menuService) {
+                function MenuCatComponent(_router, _routeParams, _menuService) {
                     this._router = _router;
+                    this._routeParams = _routeParams;
                     this._menuService = _menuService;
                     this.model = new menu_category_1.MenuCategory();
                 }
                 MenuCatComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var id = +this._routeParams.get('id');
+                    if (id > 0) {
+                        this._menuService.getMenuCategory(id).subscribe(function (item) { return _this.model = item; }, function (error) { return _this.errorMessage = error; });
+                    }
                 };
                 MenuCatComponent.prototype.cancel = function () {
                     this._router.navigate(['MenuListing']);
@@ -49,7 +55,7 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
                         selector: 'menu-item',
                         templateUrl: 'app/menuCategory/menu.cat.template.html',
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, menu_service_1.MenuService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, menu_service_1.MenuService])
                 ], MenuCatComponent);
                 return MenuCatComponent;
             }());

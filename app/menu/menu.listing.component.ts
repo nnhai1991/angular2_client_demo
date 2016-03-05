@@ -37,26 +37,29 @@ export class MenuListingComponent implements OnInit {
 //       });
 //   }
   addCat(){
-      this._router.navigate(['MenuCat']);
+      this._router.navigate(['MenuCat',{ id:0}]);
   }
-  addItem(){
-      this._router.navigate(['MenuItem']);
-  }
-  editItem(item: MenuItem){
-      
-  }
-  deleteItem(item: MenuItem){
-      this._menuService.deleteMenuItem(item).subscribe(res=>this.getMenuCategories(), error =>  this.errorMessage = <any>error);
-  }
+  
   editCat(cat: MenuCategory){
-      
+      this._router.navigate(['MenuCat',{ id:cat.menu_category_id }]);
   }
   deleteCat(cat: MenuCategory){
       if (cat.menu_item.length==0){
           this._menuService.deleteMenuCat(cat).subscribe(res=>this.getMenuCategories(), error =>  this.errorMessage = <any>error);
       }
   }
-
+  
+  
+  addItem(){
+      this._router.navigate(['MenuItem',{ id:0 }]);
+  }
+  editItem(item: MenuItem){
+      this._router.navigate(['MenuItem',{ id:item.menu_item_id }]);
+  }
+  deleteItem(item: MenuItem){
+      this._menuService.deleteMenuItem(item).subscribe(res=>this.getMenuCategories(), error =>  this.errorMessage = <any>error);
+  }
+  
   ngOnInit() {
     this.getMenuCategories();
   }

@@ -26,12 +26,12 @@ import {HTTP_PROVIDERS}    from 'angular2/http';
     useAsDefault: true
   },
   {
-    path: '/menuitem',
+    path: '/menuitem/:id',
     name: 'MenuItem',
     component: MenuItemComponent,
   },
   {
-    path: '/menucat',
+    path: '/menucat/:id',
     name: 'MenuCat',
     component: MenuCatComponent,
   }

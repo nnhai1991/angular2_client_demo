@@ -28,8 +28,9 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_item', '../s
             }],
         execute: function() {
             MenuItemComponent = (function () {
-                function MenuItemComponent(_router, _menuService) {
+                function MenuItemComponent(_router, _routeParams, _menuService) {
                     this._router = _router;
+                    this._routeParams = _routeParams;
                     this._menuService = _menuService;
                     this.model = new menu_item_1.MenuItem();
                 }
@@ -38,6 +39,11 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_item', '../s
                     this._menuService.getMenuCategories().subscribe(function (data) { return _this.menuCats = data; }, function (error) { return _this.errorMessage = error; });
                 };
                 MenuItemComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var id = +this._routeParams.get('id');
+                    if (id > 0) {
+                        this._menuService.getMenuItem(id).subscribe(function (item) { return _this.model = item; }, function (error) { return _this.errorMessage = error; });
+                    }
                     this.getMenuCategories();
                 };
                 MenuItemComponent.prototype.cancel = function () {
@@ -54,7 +60,7 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_item', '../s
                         selector: 'menu-item',
                         templateUrl: 'app/menuItem/menu.item.template.html',
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, menu_service_1.MenuService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, menu_service_1.MenuService])
                 ], MenuItemComponent);
                 return MenuItemComponent;
             }());

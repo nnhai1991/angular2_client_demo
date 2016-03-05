@@ -1,5 +1,5 @@
 import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
+import { Router,RouteParams } from 'angular2/router';
 import {NgForm}    from 'angular2/common';
 
 import { MenuCategory } from '../model/menu_category';
@@ -18,9 +18,14 @@ export class MenuCatComponent implements OnInit {
 
   constructor(
     private _router: Router,
+    private _routeParams : RouteParams,
     private _menuService: MenuService) { }
 
   ngOnInit() {
+      let id = +this._routeParams.get('id');
+      if (id > 0) {
+            this._menuService.getMenuCategory(id).subscribe(item => this.model=item,error=>this.errorMessage=<any>error);
+        }
   }
 
   cancel(){

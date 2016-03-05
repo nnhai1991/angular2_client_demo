@@ -40,7 +40,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                         .catch(this.handleError);
                 };
                 MenuService.prototype.getMenuCategory = function (id) {
-                    return this.http.get(this._menuCategoryUrl + "get/" + id)
+                    return this.http.get(this._menuCategoryUrl + "/" + id)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
@@ -51,7 +51,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                         .catch(this.handleError);
                 };
                 MenuService.prototype.getMenuItem = function (id) {
-                    return this.http.get(this._menuItemUrl + "get/" + id)
+                    return this.http.get(this._menuItemUrl + "/" + id)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };
@@ -62,7 +62,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
                     else
-                        return this.http.post(this._menuCategoryUrl + "/" + cat.menu_category_id, JSON.stringify(cat), this.options)
+                        return this.http.put(this._menuCategoryUrl + "/" + cat.menu_category_id, JSON.stringify(cat), this.options)
                             .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
@@ -74,7 +74,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);
                     else
-                        return this.http.post(this._menuItemUrl + "/" + item.menu_item_id, JSON.stringify(item), this.options)
+                        return this.http.put(this._menuItemUrl + "/" + item.menu_item_id, JSON.stringify(item), this.options)
                             .map(function (res) { return res; })
                             .do(function (data) { return console.log(data); })
                             .catch(this.handleError);

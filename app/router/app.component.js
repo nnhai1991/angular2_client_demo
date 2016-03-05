@@ -60,12 +60,12 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service', 
                             useAsDefault: true
                         },
                         {
-                            path: '/menuitem',
+                            path: '/menuitem/:id',
                             name: 'MenuItem',
                             component: menu_item_component_1.MenuItemComponent,
                         },
                         {
-                            path: '/menucat',
+                            path: '/menucat/:id',
                             name: 'MenuCat',
                             component: menu_cat_component_1.MenuCatComponent,
                         }
