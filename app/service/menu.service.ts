@@ -40,26 +40,26 @@ export class MenuService {
     }
 
     saveMenuCat(cat: MenuCategory) {
-        if (cat.menuCategoryId == null)
+        if (cat.menu_category_id == null)
             return this.http.post(this._menuCategoryUrl, JSON.stringify(cat),this.options)
                 .map(res => <MenuCategory>res.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
-            return this.http.post(this._menuCategoryUrl+"/"+cat.menuCategoryId, JSON.stringify(cat),this.options)
+            return this.http.post(this._menuCategoryUrl+"/"+cat.menu_category_id, JSON.stringify(cat),this.options)
                 .map(res => <MenuCategory>res.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);
     }
     
     saveMenuItem(item: MenuItem) {
-        if (item.menuItemId == null)
+        if (item.menu_item_id == null)
             return this.http.post(this._menuItemUrl, JSON.stringify(item),this.options)
                 .map(res => <MenuItem>res.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);
         else
-            return this.http.post(this._menuItemUrl+"/"+item.menuItemId, JSON.stringify(item),this.options)
+            return this.http.post(this._menuItemUrl+"/"+item.menu_item_id, JSON.stringify(item),this.options)
                 .map(res => <MenuItem>res.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);

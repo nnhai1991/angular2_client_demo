@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../model/menu_category', '../model/menu_item', '../service/menu.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../model/menu_item', '../service/menu.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, menu_category_1, menu_item_1, menu_service_1;
+    var core_1, router_1, menu_item_1, menu_service_1;
     var MenuItemComponent;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (menu_category_1_1) {
-                menu_category_1 = menu_category_1_1;
             },
             function (menu_item_1_1) {
                 menu_item_1 = menu_item_1_1;
@@ -42,7 +39,6 @@ System.register(['angular2/core', 'angular2/router', '../model/menu_category', '
                 };
                 MenuItemComponent.prototype.ngOnInit = function () {
                     this.getMenuCategories();
-                    this.model.menuCategoryId = new menu_category_1.MenuCategory();
                 };
                 MenuItemComponent.prototype.cancel = function () {
                     this._router.navigate(['MenuListing']);

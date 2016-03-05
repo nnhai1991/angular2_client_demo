@@ -2,8 +2,8 @@
     <div class="form-group">
         <label for="inputcat" class="col-sm-4 control-label">Menu Category</label>
         <div class="col-sm-8">
-            <select [(ngModel)]="model.menuCategoryId.menuCategoryId" required class="form-control" id="inputcat">
-                <option *ngFor="#cat of menuCats" [value]="cat.menuCategoryId">{{cat.name}}</option>
+            <select [(ngModel)]="model.menu_category_id" required class="form-control" id="inputcat">
+                <option *ngFor="#cat of menuCats" [value]="cat.menu_category_id">{{cat.name}}</option>
             </select>
 
         </div>

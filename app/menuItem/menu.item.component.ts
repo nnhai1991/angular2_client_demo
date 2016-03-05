@@ -27,7 +27,6 @@ export class MenuItemComponent implements OnInit {
 
   ngOnInit() {
     this.getMenuCategories();
-      this.model.menuCategoryId = new MenuCategory();
   }
 
   cancel(){
