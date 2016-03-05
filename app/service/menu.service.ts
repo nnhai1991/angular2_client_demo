@@ -10,9 +10,10 @@ import { MenuItem } from '../model/menu_item';
 @Injectable()
 export class MenuService {
     constructor(private http: Http) { }
-
-    private _menuCategoryUrl = 'http://localhost:8080/backend/rest/menucategory';  // URL to web api
-    private _menuItemUrl = 'http://localhost:8080/backend/rest/menuitem';  // URL to web api
+    //private _menuCategoryUrl = 'http://localhost:8080/backend/rest/menucategory';  // URL to web api
+    //private _menuItemUrl = 'http://localhost:8080/backend/rest/menuitem';  // URL to web api
+    private _menuCategoryUrl = 'http://localhost:13183/api/menucategory';  // URL to web api
+    private _menuItemUrl = 'http://localhost:13183/api/menuitem';  // URL to web api
     private options:RequestOptions = new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json' }) });
 
     getMenuCategories() {

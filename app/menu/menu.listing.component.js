@@ -34,16 +34,17 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service'],
                 MenuListingComponent.prototype.getMenuCategories = function () {
                     var _this = this;
                     this._menuService.getMenuCategories()
-                        .subscribe(function (data) { return _this.getMenuItems(data); }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (data) { return _this.menuCats = data; }, function (error) { return _this.errorMessage = error; });
                 };
-                MenuListingComponent.prototype.getMenuItems = function (menuCats) {
-                    var _this = this;
-                    this.menuCats = menuCats;
-                    menuCats.forEach(function (cat) {
-                        _this._menuService.getMenuItemsByCat(cat.menuCategoryId)
-                            .subscribe(function (data) { return _this.menuItems[cat.menuCategoryId] = data; }, function (error) { return _this.errorMessage = error; });
-                    });
-                };
+                //   getMenuItems(menuCats:MenuCategory[]) {
+                //       this.menuCats = menuCats;
+                //       menuCats.forEach(cat => {
+                //           this._menuService.getMenuItemsByCat(cat.menuCategoryId)
+                //                      .subscribe(
+                //                        data => this.menuItems[cat.menuCategoryId] = <MenuItem[]>data,
+                //                        error =>  this.errorMessage = <any>error);
+                //       });
+                //   }
                 MenuListingComponent.prototype.addCat = function () {
                 };
                 MenuListingComponent.prototype.addItem = function () {

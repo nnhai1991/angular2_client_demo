@@ -21,6 +21,9 @@
         <li [class.active]="_router.isRouteActive(_router.generate(['MenuItem']))">
             <a [routerLink]="['MenuItem']">Menu Item</a>
         </li>
+         <li [class.active]="_router.isRouteActive(_router.generate(['MenuCat']))">
+            <a [routerLink]="['MenuCat']">Menu Category</a>
+        </li>
       </ul>
      
     </div><!-- /.navbar-collapse -->

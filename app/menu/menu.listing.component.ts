@@ -24,18 +24,18 @@ export class MenuListingComponent implements OnInit {
   getMenuCategories() {
       this._menuService.getMenuCategories()
                      .subscribe(
-                        data => this.getMenuItems(data),
+                        data => this.menuCats  = data,
                        error =>  this.errorMessage = <any>error);
   }
-  getMenuItems(menuCats:MenuCategory[]) {
-      this.menuCats = menuCats;
-      menuCats.forEach(cat => {
-          this._menuService.getMenuItemsByCat(cat.menuCategoryId)
-                     .subscribe(
-                       data => this.menuItems[cat.menuCategoryId] = <MenuItem[]>data,
-                       error =>  this.errorMessage = <any>error);
-      });
-  }
+//   getMenuItems(menuCats:MenuCategory[]) {
+//       this.menuCats = menuCats;
+//       menuCats.forEach(cat => {
+//           this._menuService.getMenuItemsByCat(cat.menuCategoryId)
+//                      .subscribe(
+//                        data => this.menuItems[cat.menuCategoryId] = <MenuItem[]>data,
+//                        error =>  this.errorMessage = <any>error);
+//       });
+//   }
   addCat(){
       
   }

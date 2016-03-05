@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS ,Router} from 'angular
 import { MenuService } from '../service/menu.service';
 import { MenuListingComponent } from '../menu/menu.listing.component';
 import { MenuItemComponent } from '../menuItem/menu.item.component';
+import { MenuCatComponent } from '../menuCategory/menu.cat.component';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 
 
@@ -28,6 +29,11 @@ import {HTTP_PROVIDERS}    from 'angular2/http';
     path: '/menuitem',
     name: 'MenuItem',
     component: MenuItemComponent,
+  },
+  {
+    path: '/menucat',
+    name: 'MenuCat',
+    component: MenuCatComponent,
   }
 ])
 export class AppComponent {

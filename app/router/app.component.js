@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../service/menu.service', '../menu/menu.listing.component', '../menuItem/menu.item.component', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../service/menu.service', '../menu/menu.listing.component', '../menuItem/menu.item.component', '../menuCategory/menu.cat.component', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, menu_service_1, menu_listing_component_1, menu_item_component_1, http_1;
+    var core_1, router_1, menu_service_1, menu_listing_component_1, menu_item_component_1, menu_cat_component_1, http_1;
     var AppComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service', 
             },
             function (menu_item_component_1_1) {
                 menu_item_component_1 = menu_item_component_1_1;
+            },
+            function (menu_cat_component_1_1) {
+                menu_cat_component_1 = menu_cat_component_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -60,6 +63,11 @@ System.register(['angular2/core', 'angular2/router', '../service/menu.service', 
                             path: '/menuitem',
                             name: 'MenuItem',
                             component: menu_item_component_1.MenuItemComponent,
+                        },
+                        {
+                            path: '/menucat',
+                            name: 'MenuCat',
+                            component: menu_cat_component_1.MenuCatComponent,
                         }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])

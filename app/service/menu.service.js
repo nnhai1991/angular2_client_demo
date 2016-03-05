@@ -27,8 +27,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             MenuService = (function () {
                 function MenuService(http) {
                     this.http = http;
-                    this._menuCategoryUrl = 'http://localhost:8080/backend/rest/menucategory'; // URL to web api
-                    this._menuItemUrl = 'http://localhost:8080/backend/rest/menuitem'; // URL to web api
+                    //private _menuCategoryUrl = 'http://localhost:8080/backend/rest/menucategory';  // URL to web api
+                    //private _menuItemUrl = 'http://localhost:8080/backend/rest/menuitem';  // URL to web api
+                    this._menuCategoryUrl = 'http://localhost:13183/api/menucategory'; // URL to web api
+                    this._menuItemUrl = 'http://localhost:13183/api/menuitem'; // URL to web api
                     this.options = new http_1.RequestOptions({ headers: new http_1.Headers({ 'Content-Type': 'application/json' }) });
                 }
                 MenuService.prototype.getMenuCategories = function () {
